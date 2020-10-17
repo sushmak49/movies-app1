@@ -1,10 +1,10 @@
-.app-header{
+.app-header {
     background-color: black;
     padding: 10px 10px 8px 10px;
     height: 40px;
 }
 
-.login-button{
+.login-button {
     float: right;
 }
 
@@ -12,8 +12,21 @@
     animation: app-logo-spin infinite 8s ease;
     height: 35px;
     background: #ff7f7f;
- }
- 
- @keyframes app-logo-spin {
-    from { transform: scaleX(-1); }
- }
+}
+
+@keyframes app-logo-spin {
+    from {
+        transform: scaleX(-1);
+    }
+}
+
+.modal-container {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
