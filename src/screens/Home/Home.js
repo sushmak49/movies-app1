@@ -15,6 +15,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import '../../common/genres.js';
 import genres from '../../common/genres.js';
 import MenuItem from '@material-ui/core/MenuItem';
+import artists from '../../common/artists.js'
 
 
 const styles = theme => ({
@@ -54,6 +55,7 @@ class Home extends Component {
         this.state = {
             movieName: "",
             genres: [],
+            artists: [],
         }
     }
 
@@ -63,6 +65,9 @@ class Home extends Component {
 
     genreSelectedHandler = event => {
         this.setState({ genres: event.target.value});
+    }
+    artistSelectedHandler = event => {
+        this.setState({ artists: event.target.value});
     }
     render() {
         const { classes } = this.props;
@@ -129,6 +134,28 @@ class Home extends Component {
                                             )
                                         }
                                     </Select>
+                                </FormControl>
+                                <FormControl className={classes.formControl}>
+                                        <InputLabel htmlFor="select-multiple-artist-checkbox">Artist</InputLabel>
+                                        <Select label="Artist"
+                                                multiple
+                                                input={<Input id="select-multiple-artist-checkbox"/>}
+                                                renderValue={selected => selected.join(',')}
+                                                value={this.state.artists}
+                                                onChange={this.artistSelectedHandler}>
+                                                <MenuItem value="0">None
+                                            </MenuItem>
+                                            {
+                                                artists.map( artist => (
+                                                    <MenuItem key={artist.id} value={artist.first_name+' '+artist.last_name}>
+                                                    <Checkbox checked={this.state.artists.indexOf(artist.first_name+' '+artist.last_name)>-1}></Checkbox>
+                                                    <ListItemText primary={artist.first_name+' '+artist.last_name}/>
+                                                    </MenuItem>
+                                                )
+                                            )
+                                            }
+                                                
+                                        </Select>
                                 </FormControl>
                             </CardContent>
                         </Card>
