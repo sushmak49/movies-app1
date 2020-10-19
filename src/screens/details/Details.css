@@ -59,6 +59,7 @@
   
   .flex-containerDetails {
     display: flex;
+    margin-top: 10px;
   }
   
   .flex-containerDetails>div {
