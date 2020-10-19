@@ -7,7 +7,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Card from '@material-ui/core/Card';
-import { CardContent, FormControl, InputLabel, ListItemText } from '@material-ui/core';
+import { CardContent, FormControl, InputLabel, ListItemText, TextField } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
@@ -153,9 +153,26 @@ class Home extends Component {
                                                     </MenuItem>
                                                 )
                                             )
-                                            }
-                                                
+                                            }   
                                         </Select>
+                                </FormControl>
+                                <FormControl className={classes.formControl}>
+                                        <TextField
+                                            label="Release Date From"
+                                            id="releaseDateStart"
+                                            type="date"
+                                            defaultValue="" 
+                                            InputLabelProps={{shrink:true}}                                       
+                                        />
+                                </FormControl>
+                                <FormControl className={classes.formControl}>
+                                        <TextField
+                                            label="Release Date To"
+                                            id="releaseDateEnd"
+                                            type="date"
+                                            defaultValue="" 
+                                            InputLabelProps={{shrink:true}}                                       
+                                        />
                                 </FormControl>
                             </CardContent>
                         </Card>
