@@ -14,6 +14,11 @@
   .rightDetails {
     width: 20%;
   }
+
+  .movie-artists-grid{
+      flex-wrap: 'nowrap';
+      transform: 'translateZ(0)';
+  }
   
   .marginTop16 {
     margin-top: 16px;
