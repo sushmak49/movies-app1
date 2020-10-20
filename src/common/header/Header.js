@@ -11,6 +11,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import PropTypes from 'prop-types';
 import FormHelperText from '@material-ui/core/FormHelperText'
+import ReactDOM from 'react-dom';
+import BookShow from '../../screens/bookshow/BookShow.js';
 
 const TabContainer = function (props) {
     return (
@@ -51,7 +53,8 @@ class Header extends Component {
         this.setState({ modalIsOpen: true, value: 0 });
     }
     closeModalHandler = () => {
-        this.setState({ modalIsOpen: false,
+        this.setState({
+            modalIsOpen: false,
             usernameRequired: "dispNone",
             username: "",
             passwordRequired: "dispNone",
@@ -66,7 +69,7 @@ class Header extends Component {
             iniPassword: "",
             contactRequired: "dispNone",
             contact: "",
-              });
+        });
     }
     tabChangeHandler = (event, value) => {
         this.setState({ value });
@@ -99,6 +102,9 @@ class Header extends Component {
         this.setState({ email: e.target.value });
     }
 
+    bookShowHandler = () => {
+        ReactDOM.render(<BookShow></BookShow>,document.getElementById('root'));
+    }
     registerClickHandler = () => {
 
         this.state.firstname === "" ? this.setState({ firstnameRequired: "dispBlock" }) : this.setState({ firstnameRequired: "dispNone" });
@@ -115,6 +121,12 @@ class Header extends Component {
                     <div className="login-button">
                         <Button variant="contained" color="default" onClick={this.openModalHandler}>Login</Button>
                     </div>
+                    {
+                    this.props.showBookShowButton === "true" ?
+                        <div className="bookshow-button">
+                            <Button variant="contained" color="primary" onClick={this.bookShowHandler}>Book Show</Button>
+                        </div> : ""
+                    }
                 </header>
                 <div className="modal-container">
                     <Modal className="modal-container" isOpen={this.state.modalIsOpen} ariaHideApp={false} contentLabel="login" onRequestClose={this.closeModalHandler}>
@@ -166,10 +178,10 @@ class Header extends Component {
                                 <br />
                                 <FormControl required>
                                     <InputLabel>Contact No.</InputLabel>
-                                    <Input id="contact"  type="text" contact={this.state.contact} onChange={this.inputContactChangeHandler}></Input>
+                                    <Input id="contact" type="text" contact={this.state.contact} onChange={this.inputContactChangeHandler}></Input>
                                     <FormHelperText className={this.state.contactRequired}><span className="red">required</span></FormHelperText>
                                 </FormControl>
-                                <br/><br/>
+                                <br /><br />
                                 <Button variant="contained" color="primary" onClick={this.registerClickHandler}>REGISTER</Button>
                             </TabContainer>
                         }

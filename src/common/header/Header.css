@@ -8,6 +8,11 @@
     float: right;
 }
 
+.bookshow-button{
+    float: right;
+    margin-right: 5px;
+}
+
 .app-logo {
     animation: app-logo-spin infinite 8s ease;
     height: 35px;
