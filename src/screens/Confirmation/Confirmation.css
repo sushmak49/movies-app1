@@ -1,0 +1,12 @@
+.backtobookshow{
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cardStyle {
+    width: 280px;
+    padding: 32px 64px 32px 64px;
+    margin: auto;
+    text-align: left;
+}

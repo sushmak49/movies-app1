@@ -12,6 +12,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Input from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
+import Confirmation from '../Confirmation/Confirmation.js';
 
 
 class BookShow extends Component {
@@ -51,6 +52,12 @@ class BookShow extends Component {
 
     ticketsChangeHandler = event => {
         this.setState({tickets:event.target.value});
+    }
+
+    bookShowButtonHandler = () => {
+        ReactDOM.render(
+            <Confirmation ticketDetails={this.state}></Confirmation>,document.getElementById('root')
+        )
     }
 
     render() {
